@@ -1,0 +1,41 @@
+.product{
+    display:flex;
+    border-bottom: 1px solid red;
+}
+
+.imagePd{
+    padding:3px;
+    margin: 10px 18px 7px 0px;
+}
+
+.detailsPd h4{
+    color:blue;
+    font-weight: 400;
+    text-align: left;
+}
+
+
+.detailsPd p{
+    text-align: left;
+}
+
+.detailsPd p span{
+    color:rgb(144, 6, 25);
+    font-size: larger;
+    font-weight: 650;
+}
+
+.detailsPd button{
+  float: left;
+  width: 150px;
+  height: 30px;
+  background-color: coral;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin:7px;
+}
+
+.detailsPd button:hover{
+    background-color: lightskyblue;
+}
+
