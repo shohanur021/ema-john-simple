@@ -5,8 +5,8 @@ import cartcss from './Cart.css';
 const Cart = (props) => {
     //console.log(props.carts);
     const totalPrice = props.carts.reduce((accumulator,currentvalue) => {
-        return accumulator+currentvalue.price;
-    },0);
+        return (accumulator + currentvalue.price*currentvalue.quantity);
+    },0)
 
 let shippingCost=0;
 if(totalPrice>100){
@@ -21,8 +21,7 @@ const tax=Math.round(totalPrice*10/100);
     return (
         <div>
             <h3>Order Summary</h3>
-            <p>Items ordered : {
-            props.carts.length}</p>
+            <p>Items ordered : {props.carts.length}</p>
             <p>Price : {totalPrice.toFixed(2)}</p>
             <p>Shiping cost:{shippingCost}</p>
             <p>Tax : {tax}</p>
