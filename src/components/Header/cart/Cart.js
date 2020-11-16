@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { ProgressBar } from 'react-bootstrap';
 import cartcss from './Cart.css';
 
 const Cart = (props) => {
@@ -26,9 +26,9 @@ const tax=Math.round(totalPrice*10/100);
             <p>Shiping cost:{shippingCost}</p>
             <p>Tax : {tax}</p>
             <p style={{color:'red',fontWeight:'500'}}>Total price : {Math.round(totalPrice + shippingCost + tax)}</p>
-            <Link to="/order_Review">
-               <button>review</button>
-            </Link>
+            {
+                props.children
+            }
         </div>
     );
 };
