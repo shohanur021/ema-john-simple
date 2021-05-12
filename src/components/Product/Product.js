@@ -5,7 +5,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
 const Product = (probs) => {
-   // console.log(probs.dataProducts);
+   console.log(probs.dataProducts);
    const {img,name,seller,price,stock,key} = probs.dataProducts;
 
     return (

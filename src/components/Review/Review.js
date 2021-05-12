@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import fakeData from '../../fakeData';
 import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Items from '../ReviewItem/Items';
-import  Cart from '../Header/cart/Cart'
+import  Cart from '../cart/Cart'
 import happyImage from '../../images/giphy.gif'
 import { useHistory } from 'react-router-dom';
 
@@ -22,16 +21,15 @@ const Review = () => {
 
     useEffect(() => {
         const saveCart = getDatabaseCart();
-        console.log(saveCart);
-        const productKey = Object.keys(saveCart);
-        //console.log(productKey);
-         const cartProducts = productKey.map(key => {
-             const product = fakeData.find(pd => pd.key === key);
-             product.quantity = saveCart[key];
-             return product;
+        const productKeys = Object.keys(saveCart);
+
+        fetch('https://warm-gorge-41947.herokuapp.com/productsByKeys',{
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify(productKeys)
         })
-       // console.log(cartProducts);
-       setcart(cartProducts);
+        .then(res => res.json())
+        .then(data => setcart(data))
     },[])
 
     let thankyou;

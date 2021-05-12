@@ -1,11 +1,10 @@
 import React from 'react';
-import { ProgressBar } from 'react-bootstrap';
-import cartcss from './Cart.css';
+import './Cart.css';
 
 const Cart = (props) => {
     //console.log(props.carts);
     const totalPrice = props.carts.reduce((accumulator,currentvalue) => {
-        return (accumulator + currentvalue.price*currentvalue.quantity);
+        return (accumulator + currentvalue.price*(currentvalue.quantity || 1));
     },0)
 
 let shippingCost=0;
